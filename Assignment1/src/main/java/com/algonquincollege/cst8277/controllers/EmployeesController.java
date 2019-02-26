@@ -3,10 +3,10 @@
 * Author (original): Mike Norman, course materials (19W) CST 8277
 *
 * Modified Date: Feb 2019
-* Author: I. M. Student 040-684-747
+* Author: Bo Zhu 040-684-747
 *
 * Description: Employee Class Controller
-* @authors Bo Zhu
+* @authors mwnorman, Bo Zhu
 */
 package com.algonquincollege.cst8277.controllers;
 
