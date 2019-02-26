@@ -1,0 +1,97 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+    http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.algonquincollege.cst8277</groupId>
+  <artifactId>Assignment1</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <description>Mavenized JSF Assignment1 project</description>
+  
+  <!-- why is everything a property? Because hard-coded values become part of
+      Maven's immutable Model object and then their contents can't be changed.
+      However, if the value is set in a user-defined property BEFORE the Model
+      object is created, then it is possible to do: mvn clean compile -Dfoo.bar.version=1.2.3
+      in order to (say for example) test out a newer version of some dependency
+      without having to change the pom.xml.
+  -->
+  <properties>
+    <!-- maven properties -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.source.level>1.8</project.source.level>
+    <project.target.level>1.8</project.target.level>
+    <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+    <maven.war.plugin.version>3.2.2</maven.war.plugin.version>
+
+    <!-- code properties -->
+    <slf4j.version>1.7.25</slf4j.version>
+    <logback.version>1.2.3</logback.version>
+    <faces-api.version>2.2</faces-api.version>
+    <javax.faces.version>2.2.8-31</javax.faces.version>
+    <cdi-api.version>1.1</cdi-api.version>
+    <weld-servlet.version>2.4.1.Final</weld-servlet.version>
+  
+  </properties>
+   
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>javax.faces</groupId>
+        <artifactId>javax.faces-api</artifactId>
+        <version>${faces-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.enterprise</groupId>
+      <artifactId>cdi-api</artifactId>
+      <version>${cdi-api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.faces</artifactId>
+      <version>${javax.faces.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.weld.servlet</groupId>
+      <artifactId>weld-servlet</artifactId>
+      <version>${weld-servlet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>${project.source.level}</source>
+          <target>${project.target.level}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>${maven.war.plugin.version}</version>
+        <configuration>
+          <archive>
+            <addMavenDescriptor>false</addMavenDescriptor>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>
